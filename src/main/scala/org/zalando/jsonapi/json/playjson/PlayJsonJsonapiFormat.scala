@@ -6,7 +6,6 @@ import org.zalando.jsonapi.model._
 import org.zalando.jsonapi.model.RootObject._
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
-
 import collection.immutable.{Seq ⇒ ImmutableSeq}
 
 trait PlayJsonJsonapiFormat {
@@ -245,14 +244,14 @@ trait PlayJsonJsonapiFormat {
 
     def linkValuesToJson(name: String, href: String, meta: Meta): (String, JsValue) = {
       (name, JsObject(
-        Seq(
+        Map(
           ("href", JsString(href)),
           ("meta", Json.toJson(meta))
         )
       ))
     }
 
-    def jsonToLinkValues(linkObjectJson: Seq[(String, JsValue)]): (String, Option[Meta]) = {
+    def jsonToLinkValues(linkObjectJson: scala.collection.Map[String, JsValue]): (String, Option[Meta]) = {
       (linkObjectJson.find(_._1 == "href"), linkObjectJson.find(_._1 == "meta")) match {
         case(Some(hrefJson), Some(metaJson)) =>
           val href = hrefJson match {

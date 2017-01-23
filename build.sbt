@@ -13,20 +13,22 @@ resolvers ++= Seq(
 
 libraryDependencies ++= {
   val circeVersion = "0.6.0"
-  val akkaVersion = "2.4.8"
+  val akkaVersion = "2.4.16"
+  val akkaHttpVersion = "10.0.1"
+  val playVersion = "2.5.10"
 
   Seq(
-    "io.spray"          %% "spray-json"             % "1.3.2"      % "provided",
-    "io.spray"          %% "spray-httpx"            % "1.3.3"      % "provided",
-    "com.typesafe.akka" %% "akka-actor"             % akkaVersion  % "provided",
-    "com.typesafe.akka" %% "akka-http-core"         % akkaVersion  % "provided",
-    "com.typesafe.akka" %% "akka-http-experimental" % akkaVersion  % "provided",
-    "com.typesafe.play" %% "play-json"              % "2.3.10"     % "provided",
-    "io.circe"          %% "circe-core"             % circeVersion % "provided",
-    "io.circe"          %% "circe-generic"          % circeVersion % "provided",
-    "io.circe"          %% "circe-parser"           % circeVersion % "provided",
-    "org.scalatest"     %% "scalatest"              % "3.0.0"      % "test",
-    "com.typesafe.akka" %% "akka-http-testkit"      % akkaVersion  % "test"
+    "io.spray"          %% "spray-json"             % "1.3.3"         % "provided",
+    "io.spray"          %% "spray-httpx"            % "1.3.4"         % "provided",
+    "com.typesafe.akka" %% "akka-actor"             % akkaVersion     % "provided",
+    "com.typesafe.akka" %% "akka-http-core"         % akkaHttpVersion % "provided",
+    "com.typesafe.akka" %% "akka-http"              % akkaHttpVersion % "provided",
+    "com.typesafe.play" %% "play-json"              % playVersion     % "provided",
+    "io.circe"          %% "circe-core"             % circeVersion    % "provided",
+    "io.circe"          %% "circe-generic"          % circeVersion    % "provided",
+    "io.circe"          %% "circe-parser"           % circeVersion    % "provided",
+    "org.scalatest"     %% "scalatest"              % "3.0.0"         % "test",
+    "com.typesafe.akka" %% "akka-http-testkit"      % akkaHttpVersion % "test"
 
   )
 }
